@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" type="text/css"/>
+
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="jquery-3.5.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <style>
+            body {
+                background-image: url(image/carRental.jpg);
+                background-repeat: no-repeat;
+                background-size:cover;
+                padding-top: 15px;
+                font-size: 12px
+            }
+            .main {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            .login-or {
+                position: relative;
+                font-size: 18px;
+                color: #aaa;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            .span-or {
+                display: block;
+                position: absolute;
+                left: 50%;
+                top: -2px;
+                margin-left: -25px;
+                background-color: #fff;
+                width: 50px;
+                text-align: center;
+            }
+            .hr-or {
+                background-color: #cdcdcd;
+                height: 1px;
+                margin-top: 0px !important;
+                margin-bottom: 0px !important;
+            }
+            h3 {
+                text-align: center;
+                line-height: 300%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+
+                <div class="main">
+                    <h3>Please Log In </h3>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <a href="https://www.facebook.com/dialog/oauth?client_id=475587467131032&redirect_uri=http://localhost:8080/Lab3_CarRental/LoginFacebookServlet"
+                               class="btn btn-lg btn-info btn-block">Login Facebook</a> 
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <a href="register.jsp" class="btn btn-lg btn-info btn-block">Register</a>
+                        </div>
+                    </div>
+                    <div class="login-or">
+                        <hr class="hr-or">
+                        <span class="span-or">or</span>
+                    </div>
+
+                    <form role="form" action="DispatcherServlet" method="POST">
+                        <div class="form-group">
+                            <label for="inputUsernameEmail">Username</label>
+                            <input type="text" name="txtUsername" class="form-control" id="inputUsernameEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Password</label>
+                            <input type="password" name="txtPassword" class="form-control" id="inputPassword">
+                        </div>
+                        <div class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LfFnXoaAAAAAHFZmoF_FDYAyTZVMV3mnoHyfAU5"></div>
+                        <input type="submit" id="btn" value="Login" onclick="" name="btAction" class="btn btn btn-primary" disabled/>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <script>
+            function recaptcha_callback() {
+                var sub = document.getElementById("btn");
+                sub.removeAttribute('disabled');
+                sub.style.cursor = 'pointer';
+            }
+        </script>
+    </body>
+</html>
+
